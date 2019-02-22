@@ -1,0 +1,11 @@
+  <h1>Welcome to the Top Music BillBoard</h1>
+  <br />
+  <h2>Billboards:</h2>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><strong><%= link_to list.name, list_path(list) %></strong></li>
+    <% end %>
+  </ul>
+  <hr>
+  <%= link_to 'Create a new Billboard', new_list_path %>
+  
