@@ -1,14 +1,19 @@
-<h1><%= @artist.name %></h1>
-<br />
-    <% @artist.songs.each do |song| %>
-      <li><strong><%= song.name %></strong></li>
-    <% end %>
-<br >
-<hr />
-<%= link_to 'New Song', new_artist_song_path(@artist) %>
-<br />
-<%= link_to 'Edit Artist', edit_artist_path(@artist) %>
-<br />
-<%= link_to 'Delete Artist', @artist, method: :delete %>
-<br />
-<%= link_to 'Back', artists_path %>
+<div class="ui center aligned">
+<div class="ui card">
+  <div class="content ">
+    <h1><%= @artist.name %></h1>
+  </div>
+    <div class="content">
+        <% @artist.songs.each do |song| %>
+          <p class="header"><%= song.name %></p>
+          <br />
+        <% end %>
+    </div>
+  <div class="extra content">
+    <%= link_to 'New Song', new_artist_song_path(@artist) %> |
+    <%= link_to 'Edit Artist', edit_artist_path(@artist) %>
+    <br />
+    <%= link_to 'Delete Artist', @artist, method: :delete %> |
+    <%= link_to 'Back', artists_path %>
+  </div>
+</div>

@@ -1,2 +1,14 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+
+<h1>Would you like to add this to the <%= @list.name %> Billboard?</h1>
+
+<%= @song.name %>
+<br />
+<%= form_with(model: [@list, @song], local: true, class: "ui form") do |f| %>
+  <%f.hidden_field :list_id, :value => @list %>
+
+  <br />
+  
+  <%= f.submit "Add Song"%>
+<% end %>
+<%= link_to "Back", lists_path %>
+<%= link_to "Delete", [@list, @song], method: :delete%>

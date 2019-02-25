@@ -1,10 +1,25 @@
-  <h1>Artists</h1>
+  <div class="ui one column centered grid">
+     <div class="column"> 
+        <h1 class="ui header center aligned">Artists</h1>
+      </div>
+    </div>
   <br />
-  <ul>
+    <div class="ui four column stackable grid container">
     <% @artists.each do |artist| %>
-      <li><strong><%= link_to artist.name, artist_path(artist) %></strong></li>
+       <div class="column"> 
+        <div class= "ui card">
+          <div class="content">
+            <%= link_to artist.name, artist_path(artist), class: "header" %>
+            <br />
+            <br>
+          </div>
+          <div class="extra content">
+            <%= link_to "See songs", artist_path(artist), class: "header" %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+      </div>
   <hr>
-  <%= link_to 'Create an Artist', new_artist_path %>
+  <%= link_to 'Create an Artist', new_artist_path, class: "tiny ui button"%>
   

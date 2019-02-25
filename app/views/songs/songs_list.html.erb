@@ -1,0 +1,6 @@
+<h1>What Songs would you like to add?</h1>
+
+      <% @songs.each do |song| %>
+        <%= link_to song.name, list_song_path(@list, song) %>
+        <br />
+        <% end%>

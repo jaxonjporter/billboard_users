@@ -1,9 +1,11 @@
-<h1><%= @song.id ? 'Edit Song' : 'Create Song' %></h1>
+<h1><%= @artist.name %></h1>
+<h2><%= @song.id ? 'Edit Song' : "Create Song" %></h2>
 <hr />
-<%= form_for [@artist, @song] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true, autofocus: true %>
-  <br />
-  <%= f.submit %>
+<%= form_with(model: [@artist, @song], local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, autofocus: true %>
+    <br />
+  </div>
 <% end %>
 <%= link_to "Back", artist_path(@artist.id) %>
