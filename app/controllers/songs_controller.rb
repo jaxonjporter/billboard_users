@@ -41,7 +41,7 @@ class SongsController < ApplicationController
           end
         elsif current.include?("lists")
           if @song.update(list_song_params)
-            redirect_to root_path
+            redirect_to lists_path
           else
             render :edit
           end

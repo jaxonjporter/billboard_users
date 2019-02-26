@@ -1,5 +1,6 @@
-<div class="ui two item menu">
-<%= link_to "BillBoards", root_path, class: "item header" %>
+<div class="ui three item menu">
+<%= link_to "BillBoards", lists_path, class: "item header" %>
 <%= link_to "All Artists", artists_path, class: "item header" %>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "ui big blue button" %>
 </div>
 <br />

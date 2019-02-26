@@ -1,8 +1,9 @@
 class ListsController < ApplicationController
   before_action :set_list, except: [:index, :new, :create]
-  
+  before_action :authenticate_user!
+
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def show
@@ -27,7 +28,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
     if @list.save
       redirect_to lists_path
     else
@@ -47,7 +48,7 @@ class ListsController < ApplicationController
   end
 
   def set_list
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
   end
 
  
